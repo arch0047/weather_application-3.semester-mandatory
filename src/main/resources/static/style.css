@@ -1,0 +1,62 @@
+body {
+    background-image:url("../static/weather.jpg");
+}
+
+.container1{
+ align-self: center;
+    max-width: 540px;
+
+}
+.navbar{
+    background-color:rgb(69,106,171);
+}
+.navbar a{
+    color: white;
+    font-size: 25px;
+}
+ h3 {
+     text-align: center;
+     color: aliceblue;
+
+
+ }
+
+.search-box{
+    align-self: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border:1px solid mediumblue;
+    width: 300px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.4);
+}
+
+.btn{
+    width: 120px;
+    height: 52px;
+
+}
+
+
+.weather {
+    border:1px solid white;
+    margin-top: 5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: white;
+
+}
+.navbar span #date #time {
+     text-align: left;
+ }
+
+#icon-desc {
+    font-size: 5rem;
+    padding-top: 2rem;
+}
+
+.Humidity, .Wind, .Pressure, .Sunrise, .Sunset {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    font-size: 1.5rem;
+}

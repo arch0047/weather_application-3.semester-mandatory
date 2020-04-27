@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:opacity="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Weather app</title>
+
+
+    <link type="text/css" th:href ="@{/static/style.css}" href="../static/style.css" rel="stylesheet" >
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- weather icons CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css"/>
+    <!-- Font Awesome-->
+     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+<div>
+    <img src="../static/DRB.jpg" >
+        <!-- Navbar and Sun icon -->
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-sun"> </i> <strong>Weather app</strong>
+                <span id="date"   class="lead" > </span>
+                <span id="time" class="lead" > </span>
+            </a>
+        </nav>
+    </div>
+    <br>
+    <br>
+
+    <script>
+        // request a weekday along with a long date
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var dt = new Date();
+        document.getElementById("date").innerHTML = dt.toLocaleString('en-US', options);
+        document.getElementById("time").innerHTML = dt.toLocaleTimeString('en-US');
+    </script>
+
+    <!-- weather search  -->
+
+
+        <!-- weather section  -->
+        <div class="container">
+
+            <div class="row">
+                <div id="" class="col-6 mx-auto weather">
+                    <!-- weather header section -->
+                    <div class="weather-head">
+                        <h1 id="location" class="text-center display-6">Copenhagen Dk</h1>
+
+                            <div id="temperature" class="col-6 text-center">Temperature<i id="icon-thermometer"></i>
+                            </div>
+                        <br>
+
+                        <div class="row">
+                            <div id="Humidity" class="col-6 text-center">Humidity<i id="icon-humidity"></i>
+
+                            <div id="Wind" class="col-6 text-center"></div>Wind<i id="icon-wind"></i>
+
+                            <div id="Pressure" class="col-6 text-center"></div>Pressure<i id="icon-pressure"></i>
+
+                            <div id="Sunrise" class="col-6 text-center"></div>Sunrise<i id="icon-Sunrise"></i>
+
+                            <div id="Sunset" class="col-6 text-center"></div>Sunset<i id="icon-Sunset"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</body>
+
+
+</html>
