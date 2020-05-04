@@ -1,14 +1,11 @@
 package kea.datamatiker.weather_app.repository;
 
-import kea.datamatiker.weather_app.model.WeatherInfo;
-import org.springframework.data.repository.CrudRepository;
-
-
-
+import kea.datamatiker.weather_app.model.Weather;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
 @Repository
-public interface WeatherRepository extends CrudRepository <WeatherInfo, Integer>{
+public interface WeatherRepository extends JpaRepository<Weather,Integer> {
 
 
 

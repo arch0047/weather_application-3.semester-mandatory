@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:opacity="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <!--Responsive viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Weather app</title>
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!--my Stylesheet  -->
+    <link type="text/css" th:href ="@{/recources/static/style.css}" href="../static/style.css" rel="stylesheet" >
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <!--Jqurey -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div>
+ <!--   <img src="../static/DRB.jpg" > -->
+        <!-- Navbar and Sun icon -->
+        <nav class="navbar"style="background-color:rgb(69,106,171)">
+            <a class="navbar-brand" href="#" style="color: white;font-size: 25px;">
+                <i class="fas fa-sun"> </i> <strong>Weather app</strong>
+                <span id="date"   class="lead" > </span>
+                <span id="time" class="lead" > </span>
+            </a>
+        </nav>
+    </div>
+    <br>
+    <br>
+     <!--  java script to get current time on the web page -->
+    <script>
+        // request a weekday along with a long date
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var dt = new Date();
+        document.getElementById("date").innerHTML = dt.toLocaleString('en-US', options);
+        document.getElementById("time").innerHTML = dt.toLocaleTimeString('en-US');
+    </script>
+
+        <!-- weather section  -->
+<div class="container" >
+            <div class="row">
+
+                <div id="" class="col-6 mx-auto weather">
+                    <!-- weather header section -->
+                     <div class="weather-head"style="color:rgb(69,106,171) ">
+                        <h1 id="city name" class="text-center display-6"th:text="${name}">Copenhagen Dk</h1>
+                            </div>
+                        <br>
+                    <div class="row" >
+
+                        <div class ="row"style="color:rgb(69,106,171) ">
+
+                            <div id="temperature" class="col-6 text-left">Temperature</div>
+                            <div id="temp" class="col-6 text-right" th:text="${temp}"></div>
+
+                            <div id="feels_like"  class="col-6 text-left">Feels_like</div>
+                            <div id="feelsLike"  class="col-6 text-right" th:text="${feels_like}"></div>
+
+                            <div id="temp_min"   class="col-6 text-left">Minimum Temperature</div>
+                            <div id="Min"       class="col-6 text-right" th:text="${temp_min}"></div>
+
+                            <div id="temp_max"    class="col-6 text-left">Maximum Temperature</div>
+                            <div id="Max"        class="col-6 text-right" th:text="${temp_max}"></div>
+
+                            <div id="Humidity"    class="col-6 text-left">Humidity</div>
+                            <div id="Hum"         class="col-6 text-right" th:text="${humidity}"></div>
+
+                            <div id="Wind Speed"  class="col-6 text-left">Wind Speed</div>
+                            <div id="WSpeed"      class="col-6 text-right" th:text="${speed}"></div>
+
+                            <div id="Pressure" class="col-6 text-left">Pressure</div>
+                            <div id="Press"    class="col-6 text-right" th:text="${pressure}"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+</form>
+</body>
+
+
+</html>

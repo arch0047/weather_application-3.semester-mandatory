@@ -2,34 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <!--Responsive viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Weather app</title>
 
-    <link type="text/css" th:href ="@{/static/style.css}" href="../static/style.css" rel="stylesheet" >
-    <!-- Bootstrap CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
-
+    <!-- Font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <!-- weather icons CDN -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css"/>
-    <!-- Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-
+    <!--my Stylesheet  -->
+    <link type="text/css" th:href="@{/resources/static/style.css}"href="../static/style.css"rel="stylesheet" >
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <!--Jqurey -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 </head>
-
 <body>
 <div>
     <!-- Navbar and Sun icon -->
-    <nav class="navbar">
-        <a class="navbar-brand" href="#">
+    <nav class="navbar" style="background-color:rgb(69,106,171)">
+        <a class="navbar-brand" href="#" style="color: white;font-size: 25px;">
             <i class="fas fa-sun"> </i> <strong>Weather app</strong>
             <span id="date" class="lead"> </span>
             <span id="time" class="lead" > </span>
         </a>
     </nav>
 </div>
-
+<!-- java script to get current time and date value -->
 <script>
     // request a weekday along with a long date
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -39,21 +40,27 @@
 </script>
 <br>
 <br>
-<h3 > Welcome to weather forecast application please begin your search here ! </h3>
+<h3 style="text-align: center;
+     color: deepskyblue;"> Welcome to weather forecast application please begin your search here ! </h3>
 <br>
 <br>
 <br>
-
-<!-- **************<img src="../static/weather.jpg"> ****************-->
 <!-- weather search  -->
+<form action="#" th:action="@{/welcome}"th:object="${weatherForecast}" method="post">
 
-<div align="center" >
-    <label>
-        <input type="text" autocomplete="off" class="search-box" placeholder="Enter your city name" aria-label="Search"/>
-        <th><a th:href="home" button type="button" class="btn btn-outline-primary">Submit</button> </a>
-    </label>
-</div>
+<div class="md-form active-pink-2 mb-3" align="center" >
+    <input type="text" name="name" id="name" autocomplete="off" class="search-box" placeholder="Enter your city name" aria-label="Search" style="align-self: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border:1px solid mediumblue;
+    width: 300px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.4);"/>
+    <input type="submit" value="Submit">
+    <!-- <a button type="button" class="btn btn-outline-primary "href="forecast" role></button> </a> -->
+ </div>
+ </form>
 
-
-</body>
-</html>
+ <img src=" ../static/weather.jpg" class="img-fluid" >
+ </body>
+ </html>
