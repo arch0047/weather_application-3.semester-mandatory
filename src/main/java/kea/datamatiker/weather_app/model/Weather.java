@@ -11,10 +11,8 @@ public class Weather {
    // variables
    // primary key
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="weatherId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name="temperature")
     private double temp;
     private double feels_like;
     private double temp_min;
@@ -52,14 +50,6 @@ public class Weather {
 
     public void setTemperature(double temp) {
         this.temp = temp;
-    }
-
-    public int getWeatherId() {
-        return id;
-    }
-
-    public void setWeatherId(int weatherId) {
-        this.id = weatherId;
     }
 
     public double getFeels_like() {

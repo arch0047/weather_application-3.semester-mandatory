@@ -102,13 +102,9 @@ public class WeatherService {
                 newWeatherForecast.setHumidity(Integer.valueOf(parValue[1]));
             } else if (parValue[0].equals("wind") &&(parValue[1].equals("speed"))) {
                 newWeatherForecast.setWindspeed(Double.valueOf(parValue[2]));
-            } else if (parValue[0].equals("id")) {
-                newWeatherForecast.setId(Integer.valueOf(parValue[1]));
             }
         }
-
             newWeatherForecast.setDate(new Date());
-           //weatherRepository.save(newWeatherForecast);
             return newWeatherForecast;
 
     }

@@ -24,6 +24,7 @@ public class HomeController {
     {
        weatherForecast = weatherService.newForecast(weatherForecast.getName());
 
+        weatherService.save(weatherForecast);
 
        //Mapped values to HTML View
         model.addAttribute("name",       weatherForecast.getName());
