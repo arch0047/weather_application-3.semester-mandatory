@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <title>History</title>
+</head>
+<body>
+
+<nav class="navbar" style="background-color:rgb(69,106,171)">
+    <ul class="navbar-nav mr-auto">
+        <link><a  class="navbar-brand" style="color: aliceblue" href="/welcome" >Go to search page</a></link>
+    </ul>
+</nav>
+
+<div align="Center" >
+
+<h1 style="color:rgb(69,106,171)" > Search History</h1>
+<br>
+    <table class="table">
+        <thead>
+           <tr>
+              <th>Id</th>
+              <th>City Name</th>
+              <th>Date & Time</th>
+              <th>Temperature(°C)</th>
+              <th>Temp Max</th>
+              <th>Temp Min</th>
+              <th>Feels Like</th>
+              <th>Humidity</th>
+              <th>Pressure</th>
+              <th>Wind Speed</th>
+
+
+           </tr>
+        </thead>
+
+      <tbody>
+        <tr th:each="weather: ${SearchHistory}">
+           <td th:text="${weather.id}"> </td>
+            <td th:text="${weather.name}"> </td>
+           <td th:text="${weather.date}"> </td>
+            <td th:text="${weather.temperature}"> </td>
+            <td th:text="${weather.temp_max}"> </td>
+            <td th:text="${weather.temp_min}"> </td>
+           <td th:text="${weather.feels_like}"> </td>
+           <td th:text="${weather.humidity}"> </td>
+           <td th:text="${weather.pressure}"> </td>
+           <td th:text="${weather.windspeed}"> </td>
+
+
+
+           <td ><a th:href="@{'/delete/' + ${weather.id}}"class="btn btn-danger">Delete</a></td>
+       </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
