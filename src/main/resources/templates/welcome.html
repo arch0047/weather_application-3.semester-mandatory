@@ -27,6 +27,7 @@
             <i class="fas fa-sun"> </i> <strong>Weather app</strong>
             <span id="date" class="lead"> </span>
             <span id="time" class="lead" > </span>
+            <link><a  class="navbar-brand" style="color: aliceblue" href="/welcome/viewSearch" >View History</a></link>
         </a>
     </nav>
 </div>
@@ -41,12 +42,14 @@
 <br>
 <br>
 <h3 style="text-align: center;
-     color: deepskyblue;"> Welcome to weather forecast application please begin your search here ! </h3>
+     color: rgb(69,106,171);"> Welcome to weather forecast application please begin your search here ! </h3>
 <br>
 <br>
 <br>
 <!-- weather search  -->
 <form action="#" th:action="@{/welcome}"th:object="${weatherForecast}" method="post">
+
+
 
 <div class="md-form active-pink-2 mb-3" align="center" >
     <input type="text" name="name" id="name" autocomplete="off" class="search-box" placeholder="Enter your city name" aria-label="Search" style="align-self: center;
@@ -57,10 +60,11 @@
     border-radius: 10px;
     background-color: rgba(255,255,255,0.4);"/>
     <input type="submit" value="Submit">
+
     <!-- <a button type="button" class="btn btn-outline-primary "href="forecast" role></button> </a> -->
  </div>
  </form>
 
- <img src=" ../static/weather.jpg" class="img-fluid" >
- </body>
- </html>
+<!--<img src=" ../static/weather.jpg" class="img-fluid" > -->
+</body>
+</html>

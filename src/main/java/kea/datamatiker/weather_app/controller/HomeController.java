@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class HomeController {
 
@@ -22,9 +24,10 @@ public class HomeController {
     @PostMapping("/welcome")
      public String showWeather(@ModelAttribute Weather weatherForecast, Model model)
     {
-       weatherForecast = weatherService.newForecast(weatherForecast.getName());
 
-        weatherService.save(weatherForecast);
+       if (!weatherForecast.getName().equals("")) {
+          weatherForecast = weatherService.newForecast(weatherForecast.getName());
+       }
 
        //Mapped values to HTML View
         model.addAttribute("name",       weatherForecast.getName());
@@ -38,9 +41,28 @@ public class HomeController {
         model.addAttribute("date",       weatherForecast.getDate());
         model.addAttribute("temp",       weatherForecast.getTemperature());
 
-        return "/forecast";
+         if ((weatherForecast.getName().equals("Not Found"))|| weatherForecast.getName().equals("")) {
+             return "welcome";
 
+         }else{
+             weatherService.save(weatherForecast);
+             return "/forecast";
+         }
+    }
+    // See search history
+    @GetMapping("/welcome/viewSearch")
+    public String getHistory(Model model){
+        List<Weather> historyList = weatherService.getAll();
+        model.addAttribute("SearchHistory", historyList);
+        return "history";
 
     }
+    @RequestMapping("/delete/{id}")
+    public String deleteHistory(@PathVariable(name = "id") int id)
+    {
+        weatherService.delete(id);
+        return "redirect:/welcome/viewSearch";
+    }
+
 
 }
